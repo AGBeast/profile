@@ -36,6 +36,11 @@ var Carousel = (function(){
 		$items.css({ left: (-position) + "px" });
 	}
 
+	function clickPerson(evt){
+		var imageID = $(e.target).attr("rel").replace(/^.*(\d+)$/,"$1");
+			Details.fetchDetails(imageID);
+	}
+
 	
 
 	// attach click handlers for the `$left` and `$right` buttons,
@@ -46,6 +51,10 @@ var Carousel = (function(){
 
 	$left.on("click", scrollLeft);
 	$right.on("click", scrollRight);
+
+
+	$items = $("[rel=js-carousel] > [rel=js-content] > [rel=js-items]");
+	$content = $("[rel=js-details]");
 
 	}
 
